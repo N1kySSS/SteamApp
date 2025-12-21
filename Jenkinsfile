@@ -2,27 +2,33 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Build Services') {
             steps {
-                echo 'Checking out code...'
-                checkout scm
-            }
-        }
+                dir('grpc-server') {
+                    sh './mvnw clean package -DskipTests'
+                }
 
-        stage('Build All Services') {
-            steps {
-                echo 'Building all services via Docker Compose...'
-                sh 'docker-compose build'
+                dir('simple-notification-service') {
+                    sh './mvnw clean package -DskipTests'
+                }
+
+                dir('steam-audit') {
+                    sh './mvnw clean package -DskipTests'
+                }
+
+                dir('steammicro') {
+                    sh './mvnw clean package -DskipTests'
+                }
             }
         }
     }
 
     post {
         success {
-            echo 'Build completed successfully!'
+            echo 'All services built successfully!'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Build failed for one or more services.'
         }
     }
 }
