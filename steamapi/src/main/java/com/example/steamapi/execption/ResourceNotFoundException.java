@@ -1,0 +1,7 @@
+package com.example.steamapi.execption;
+
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String resource, Object id) {
+        super(String.format("%s с ID %s не найден", resource, id));
+    }
+}

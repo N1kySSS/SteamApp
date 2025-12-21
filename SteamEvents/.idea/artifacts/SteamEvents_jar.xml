@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SteamEvents:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SteamEvents_jar</output-path>
+    <root id="archive" name="SteamEvents.jar">
+      <element id="module-output" name="SteamEvents" />
+    </root>
+  </artifact>
+</component>

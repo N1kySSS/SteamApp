@@ -1,0 +1,23 @@
+query GetGamesAndDevelopers {
+  developers {
+    id
+    name
+    geolocation
+    gameCount
+  }
+  games(page: 0, size: 2) {
+    content {
+      id
+      title
+      developerId
+      description
+      price
+      favourite
+      discount
+    }
+    totalPages
+    totalElements
+    last
+  }
+}
+

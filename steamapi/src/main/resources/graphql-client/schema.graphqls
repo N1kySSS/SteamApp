@@ -1,0 +1,67 @@
+type Developer {
+    id: ID!
+    name: String
+    geolocation: String
+    gameCount: Int
+    registeredAt: String
+}
+
+type Game {
+    id: ID!
+    title: String
+    developerId: ID!
+    description: String
+    imageUrl: String
+    price: Int
+    isFavourite: Boolean
+    discount: Float
+    createdAt: String
+}
+
+type GamePage {
+    content: [Game]
+    pageNumber: Int
+    pageSize: Int
+    totalElements: Int
+    totalPages: Int
+    last: Boolean
+}
+
+type Query {
+    developers: [Developer]
+    developerById(id: ID!): Developer
+
+    games(developerId: ID, page: Int = 0, size: Int = 10): GamePage
+    gameById(id: ID!): Game
+    allGames: [Game]
+    favouriteGames: [Game]
+}
+
+input DeveloperInput {
+    name: String!
+    geolocation: String!
+}
+
+input GameInput {
+    title: String!
+    developerId: ID!
+    price: Int!
+    description: String
+    imageUrl: String
+}
+
+input UpdateGameInput {
+    price: Int!
+    description: String
+    imageUrl: String
+}
+
+type Mutation {
+    createDeveloper(input: DeveloperInput!): Developer
+    deleteDeveloper(id: ID!): ID
+
+    createGame(input: GameInput!): Game
+    updateGame(id: ID!, input: UpdateGameInput!): Game
+    deleteGame(id: ID!): ID
+    makeGameFavourite(id: ID!): Game
+}

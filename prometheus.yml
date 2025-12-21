@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "steam_app"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets:
+          - "steammicro:8080"
+          - "simple-notification-service:8083"
+          - "steam-audit:8082"
+          - "grpc-server:8081"

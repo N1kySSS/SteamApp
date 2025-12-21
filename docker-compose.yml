@@ -1,0 +1,103 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - microservices-net
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - microservices-net
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - microservices-net
+
+  grpc-server:
+    build: ./grpc-server
+    ports:
+      - "25500:25500"
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  simple-notification-service:
+    build: ./simple-notification-service
+    ports:
+      - "25501:25501"
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SERVER_PORT=25501
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  steam-audit:
+    build: ./steam-audit
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SERVER_PORT=25503
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
+  steammicro:
+    build: ./steammicro
+    ports:
+      - "25502:25502"
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - GRPC_CLIENT_ANALYTICS_SERVICE_ADDRESS=static://grpc-server:25500
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      grpc-server:
+        condition: service_started
+    networks:
+      - microservices-net
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root
+    ports:
+      - "25591:8080"
+      - "50000:50000"
+    environment:
+      JENKINS_OPTS: --prefix=/jenkins
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ./SteamSova:/var/jenkins_home/workspace/SteamSova
+    networks:
+      - microservices-net    
+
+networks:
+  microservices-net:
+    driver: bridge
+
+volumes:
+  jenkins_home:
