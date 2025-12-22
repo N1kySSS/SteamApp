@@ -8,6 +8,3 @@ scrape_configs:
       - targets:
           - "steammicro:25502"
           - "simple-notification-service:25501"
-          - "steam-audit:25503"
-          - "grpc-server:25500"
-          - "grpc-server:25504"
