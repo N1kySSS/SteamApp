@@ -14,6 +14,21 @@ pipeline {
                     sh './mvnw clean package -DskipTests'
                 }
 
+                dir('SteamEvents') {
+                    sh 'chmod +x mvnw'
+                    sh './mvnw clean package -DskipTests'
+                }
+
+                dir('steamapi') {
+                    sh 'chmod +x mvnw'
+                    sh './mvnw clean package -DskipTests'
+                }
+
+                dir('statistics-service') {
+                    sh 'chmod +x mvnw'
+                    sh './mvnw clean package -DskipTests'
+                }
+
                 dir('steam-audit') {
                     sh 'chmod +x mvnw'
                     sh './mvnw clean package -DskipTests'
