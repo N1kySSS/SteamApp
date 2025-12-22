@@ -87,9 +87,11 @@ services:
     ports:
       - "25591:8080"
       - "50000:50000"
+    environment:
+      JENKINS_OPTS: --prefix=/jenkins
     volumes:
       - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ./SteamSova:/var/jenkins_home/workspace/SteamSova
     networks:
       - microservices-net
 
