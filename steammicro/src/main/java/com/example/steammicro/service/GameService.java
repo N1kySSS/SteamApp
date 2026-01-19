@@ -122,6 +122,24 @@ public class GameService {
         return updatedGame;
     }
 
+    public void applyDiscount(Long gameId, Long finalPrice, Long percentDiscount) {
+        GameResponse existingGame = findGameById(gameId);
+        
+        var updatedGame = new GameResponse(
+                gameId,
+                existingGame.getTitle(),
+                existingGame.getDeveloperId(),
+                existingGame.getDescription(),
+                existingGame.getImageUrl(),
+                finalPrice.intValue(),
+                existingGame.getFavourite(),
+                percentDiscount.floatValue(),
+                existingGame.getCreatedAt()
+        );
+
+        storage.games.put(gameId, updatedGame);
+    }
+
     public void deleteGame(Long id) {
         findGameById(id);
 

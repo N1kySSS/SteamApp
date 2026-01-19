@@ -19,8 +19,8 @@ public class RootController {
                 linkTo(methodOn(DeveloperController.class).getAllDevelopers()).withRel("developers"),
                 linkTo(methodOn(GameController.class).getAllGamesPagination(null, 0, 10)).withRel("games")
         );
-        rootModel.add(Link.of("http://localhost:8080/swagger-ui.html", "documentation"));
-        rootModel.add(Link.of("http://localhost:8080/graphiql", "graphql"));
+        rootModel.add(Link.of("http://localhost:25502/swagger-ui.html", "documentation"));
+        rootModel.add(Link.of("http://localhost:25502/graphiql", "graphql"));
         return rootModel;
     }
 }

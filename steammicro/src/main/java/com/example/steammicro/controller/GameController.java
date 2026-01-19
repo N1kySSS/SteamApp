@@ -11,6 +11,9 @@ import com.example.steammicro.service.GameService;
 import events.GameDiscountAddedEvent;
 import grpc.demo.AnalyticsServiceGrpc;
 import grpc.demo.GameDiscountRequest;
+import grpc.demo.GameDiscountResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -52,6 +55,9 @@ public class GameController implements GameApi {
     public ResponseEntity<EntityModel<GameResponse>> createGame(@Valid CreateGameRequest request) {
         GameResponse createdGame = gameService.createGame(request);
         EntityModel<GameResponse> entityModel = gameModelAssembler.toModel(createdGame);
+
+        String result = addDiscount(entityModel.getContent().getId(), entityModel.getContent().getPrice());
+        System.out.println(result);
 
         return ResponseEntity
                 .created(entityModel.getRequiredLink("self").toUri())
@@ -105,13 +111,16 @@ public class GameController implements GameApi {
         gameService.deleteGame(id);
     }
 
-    //Возможно в дальнейшем сделать private и вызывать при создании игры
+    @Operation(summary = "Сделать скидку на игру")
     @PostMapping("/api/games/{id}/discount")
     public String addDiscount(@PathVariable Long id, int price) {
         // Вызов gRPC
         var request = GameDiscountRequest.newBuilder().setGameId(id).setGamePrice(price).build();
+
         try {
             var gRpcResponse = analyticsStub.calculateGameDiscount(request);
+
+            gameService.applyDiscount(gRpcResponse.getGameId(), gRpcResponse.getGameFinalPrice(), gRpcResponse.getGamePercentDiscount());
 
             // Отправка события в Fanout
             var event = new GameDiscountAddedEvent(gRpcResponse.getGameId(), gRpcResponse.getGameFinalPrice(), gRpcResponse.getGamePercentDiscount());
