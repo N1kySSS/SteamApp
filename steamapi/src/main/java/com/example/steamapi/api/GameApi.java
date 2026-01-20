@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.*;
 })
 public interface GameApi {
     @Operation(summary = "Создать новую игру")
-    @ApiResponse(responseCode = "200", description = "Игра успешно создана")
+    @ApiResponse(responseCode = "201", description = "Игра успешно создана")
     @ApiResponse(responseCode = "400", description = "Невалидный запрос", content = @Content(schema = @Schema(implementation = StatusResponse.class)))
     @ApiResponse(responseCode = "409", description = "Игра с таким названием уже существует", content = @Content(schema = @Schema(implementation = StatusResponse.class)))
     @PostMapping(value = "/api/games")
@@ -93,7 +93,7 @@ public interface GameApi {
     EntityModel<GameResponse> updateGame(@PathVariable Long id, @Valid @RequestBody UpdateGameRequest request);
 
     @Operation(summary = "Удалить конкретную игру по id")
-    @ApiResponse(responseCode = "200", description = "Игра успешно удалена")
+    @ApiResponse(responseCode = "204", description = "Игра успешно удалена")
     @ApiResponse(responseCode = "404", description = "Игра не найдена")
     @DeleteMapping(value = "/api/games/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -55,6 +55,19 @@ services:
     networks:
       - microservices-net
 
+  ws-service:
+    build: ./simple-notification-service
+    ports:
+      - "25509:25509"
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SERVER_PORT=25509
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - microservices-net
+
   steam-audit:
     build: ./steam-audit
     environment:

@@ -19,8 +19,12 @@ public class RootController {
                 linkTo(methodOn(DeveloperController.class).getAllDevelopers()).withRel("developers"),
                 linkTo(methodOn(GameController.class).getAllGamesPagination(null, 0, 10)).withRel("games")
         );
-        rootModel.add(Link.of("http://localhost:25502/swagger-ui.html", "documentation"));
-        rootModel.add(Link.of("http://localhost:25502/graphiql", "graphql"));
+        rootModel.add(Link.of("http://localhost:25502/swagger-ui.html", "Documentation"));
+        rootModel.add(Link.of("http://localhost:25502/graphiql", "Graphql"));
+        rootModel.add(Link.of("http://localhost:9090/query", "Prometheus"));
+        rootModel.add(Link.of("http://localhost:9411/zipkin/", "Zipkin"));
+        rootModel.add(Link.of("http://localhost:15672/", "RabbitMQ"));
+        rootModel.add(Link.of("http://localhost:25509/api/notifications/stats", "WS статистика"));
         return rootModel;
     }
 }

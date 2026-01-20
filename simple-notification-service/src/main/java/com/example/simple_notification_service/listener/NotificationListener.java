@@ -1,5 +1,6 @@
-package com.example.simple_notification_service.handler;
+package com.example.simple_notification_service.listener;
 
+import com.example.simple_notification_service.handler.NotificationWebSocketHandler;
 import events.GameCreatedEvent;
 import events.GameDeletedEvent;
 import events.GameDiscountAddedEvent;

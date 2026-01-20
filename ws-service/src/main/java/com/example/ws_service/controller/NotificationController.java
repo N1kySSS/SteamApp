@@ -1,6 +1,6 @@
-package com.example.simple_notification_service.controller;
+package com.example.ws_service.controller;
 
-import com.example.simple_notification_service.handler.NotificationHandler;
+import com.example.ws_service.handler.NotificationHandler;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

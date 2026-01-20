@@ -1,4 +1,4 @@
-package com.example.simple_notification_service.handler;
+package com.example.ws_service.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

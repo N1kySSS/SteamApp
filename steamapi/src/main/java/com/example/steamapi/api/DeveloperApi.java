@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.*;
 })
 public interface DeveloperApi {
     @Operation(summary = "Создать нового разработчика")
-    @ApiResponse(responseCode = "200", description = "Разработчик успешно создан")
+    @ApiResponse(responseCode = "201", description = "Разработчик успешно создан")
     @ApiResponse(responseCode = "400", description = "Невалидный запрос", content = @Content(schema = @Schema(implementation = StatusResponse.class)))
     @ApiResponse(responseCode = "409", description = "Разработчик с таким названием уже существует", content = @Content(schema = @Schema(implementation = StatusResponse.class)))
     @PostMapping(value = "/api/developers")
@@ -62,7 +62,7 @@ public interface DeveloperApi {
     EntityModel<DeveloperResponse> getDeveloperById(@PathVariable Long id);
 
     @Operation(summary = "Удалить конкретного разработчика по id")
-    @ApiResponse(responseCode = "200", description = "Разработчик успешно удален")
+    @ApiResponse(responseCode = "204", description = "Разработчик успешно удален")
     @ApiResponse(responseCode = "404", description = "Разработчик не найден")
     @DeleteMapping(value = "/api/developers/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

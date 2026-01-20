@@ -32,6 +32,11 @@ pipeline {
                     sh './mvnw clean package -DskipTests'
                 }
 
+                dir('ws-service') {
+                    sh 'chmod +x mvnw'
+                    sh './mvnw clean package -DskipTests'
+                }
+
                 dir('statistics-service') {
                     sh 'chmod +x mvnw'
                     sh './mvnw clean package -DskipTests'

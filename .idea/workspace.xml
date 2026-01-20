@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5334c49d-a6d2-454e-8373-bd018ee84578" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/handler/NotificationListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SteamEvents/src/main/java/events/GameDeletedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/SteamEvents/src/main/java/events/GameDeletedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SteamEvents/src/main/java/events/GameDiscountAddedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/SteamEvents/src/main/java/events/GameDiscountAddedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple-notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/simple-notification-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple-notification-service/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple-notification-service/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statistics_service/listeners/StatisticsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statistics_service/listeners/StatisticsListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/steam-audit/src/main/java/com/example/steam_audit/listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/steam-audit/src/main/java/com/example/steam_audit/listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/DeveloperApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/DeveloperApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/GameApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/GameApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/controller/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/controller/RootController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +41,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IdeaProjects/SteamApp/steammicro"
+    "last_opened_file_path": "C:/Users/Sova/OneDrive/Desktop/ws-service"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
