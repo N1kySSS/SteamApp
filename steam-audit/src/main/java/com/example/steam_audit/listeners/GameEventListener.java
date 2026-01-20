@@ -96,7 +96,7 @@ public class GameEventListener {
         try {
             log.info("Received GameDeletedEvent: {}", event);
             // Логика отмены уведомлений...
-            log.info("Notifications cancelled for deleted bookId {}!", event.gameId());
+            log.info("Notifications cancelled for deleted gameId {}!", event.gameId());
             channel.basicAck(deliveryTag, false);
 
         } catch (Exception e) {

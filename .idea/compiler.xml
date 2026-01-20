@@ -11,8 +11,8 @@
         <module name="statistics-service" />
         <module name="grpc-server" />
         <module name="steamapi" />
-        <module name="SteamEvents" />
         <module name="steam-audit" />
+        <module name="SteamEvents" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

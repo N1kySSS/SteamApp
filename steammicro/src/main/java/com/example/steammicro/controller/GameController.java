@@ -120,10 +120,10 @@ public class GameController implements GameApi {
         try {
             var gRpcResponse = analyticsStub.calculateGameDiscount(request);
 
-            gameService.applyDiscount(gRpcResponse.getGameId(), gRpcResponse.getGameFinalPrice(), gRpcResponse.getGamePercentDiscount());
+            Boolean isGameFavourite = gameService.applyDiscount(gRpcResponse.getGameId(), gRpcResponse.getGameFinalPrice(), gRpcResponse.getGamePercentDiscount());
 
             // Отправка события в Fanout
-            var event = new GameDiscountAddedEvent(gRpcResponse.getGameId(), gRpcResponse.getGameFinalPrice(), gRpcResponse.getGamePercentDiscount());
+            var event = new GameDiscountAddedEvent(gRpcResponse.getGameId(), gRpcResponse.getGameFinalPrice(), gRpcResponse.getGamePercentDiscount(), isGameFavourite);
 
             // Для Fanout routingKey не важен, оставляем пустым ""
             rabbitTemplate.convertAndSend(RabbitMQConfig.FANOUT_EXCHANGE, "", event);

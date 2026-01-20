@@ -122,7 +122,7 @@ public class GameService {
         return updatedGame;
     }
 
-    public void applyDiscount(Long gameId, Long finalPrice, Long percentDiscount) {
+    public Boolean applyDiscount(Long gameId, Long finalPrice, Long percentDiscount) {
         GameResponse existingGame = findGameById(gameId);
         
         var updatedGame = new GameResponse(
@@ -138,12 +138,14 @@ public class GameService {
         );
 
         storage.games.put(gameId, updatedGame);
+
+        return existingGame.getFavourite();
     }
 
     public void deleteGame(Long id) {
-        findGameById(id);
+        GameResponse foundGame = findGameById(id);
 
-        GameDeletedEvent event = new GameDeletedEvent(id);
+        GameDeletedEvent event = new GameDeletedEvent(id, foundGame.getFavourite());
         rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME, RabbitMQConfig.ROUTING_KEY_GAME_DELETED, event);
 
         storage.games.remove(id);

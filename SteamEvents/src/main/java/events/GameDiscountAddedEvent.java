@@ -5,5 +5,6 @@ import java.io.Serializable;
 public record GameDiscountAddedEvent(
         Long gameId,
         Long gameFinalPrice,
-        Long gamePercentDiscount
+        Long gamePercentDiscount,
+        Boolean isFavourite
 ) implements Serializable {}

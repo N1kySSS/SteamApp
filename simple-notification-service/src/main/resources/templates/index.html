@@ -138,7 +138,7 @@
 
     function connect() {
         // Подключение к нашему новому сервису
-        socket = new WebSocket('ws://localhost:8083/ws/notifications');
+        socket = new WebSocket('ws://localhost:25501/ws/notifications');
 
         socket.onopen = () => {
             statusDiv.innerText = 'Подключено к системе событий';

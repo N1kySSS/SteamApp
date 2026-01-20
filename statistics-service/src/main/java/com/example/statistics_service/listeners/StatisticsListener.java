@@ -44,11 +44,11 @@ public class StatisticsListener {
             log.info("Received GameCreatedEvent: {}.", event);
 
             gamesStats.put(event.gameId(), event.title());
-            log.info("Total books: {}", gamesStats.size());
+            log.info("Total games: {}", gamesStats.size());
 
             channel.basicAck(deliveryTag, false);
         } catch (Exception e) {
-            log.error("Failed to process statistics for book: {}", event, e);
+            log.error("Failed to process statistics for game: {}", event, e);
             channel.basicNack(deliveryTag, false, true);
         }
     }
