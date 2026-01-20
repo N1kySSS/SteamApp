@@ -17,7 +17,6 @@ public class NotificationWebSocketHandler extends TextWebSocketHandler {
 
     private static final Logger log = LoggerFactory.getLogger(NotificationWebSocketHandler.class);
 
-    // Потокобезопасный список сессий
     private final List<WebSocketSession> sessions = new CopyOnWriteArrayList<>();
 
     @Override

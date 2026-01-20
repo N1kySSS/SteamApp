@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5334c49d-a6d2-454e-8373-bd018ee84578" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/cfg/RabbitMQConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/controller/NotificationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/handler/NotificationHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/handler/NotificationWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/handler/NotificationWebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/listener/NotificationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/simple-notification-service/src/main/java/com/example/simple_notification_service/listener/NotificationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-notification-service/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple-notification-service/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/DeveloperApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/DeveloperApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/GameApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/steamapi/src/main/java/com/example/steamapi/api/GameApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/controller/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/controller/RootController.java" afterDir="false" />
@@ -37,11 +45,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.SimpleNotificationServiceApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Sova/OneDrive/Desktop/ws-service"
+    "last_opened_file_path": "D:/IdeaProjects/SteamApp/ws-service"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

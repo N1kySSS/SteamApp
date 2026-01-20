@@ -37,10 +37,16 @@ public class NotificationListener {
             )
     )
     public void onGameCreated(GameCreatedEvent event) {
-        String message = "New game created: " + event.title() + " (id=" + event.gameId() + ")";
+        log.info("Received event from RabbitMQ: {}", event);
 
-        log.info("WS notify (created): {}", message);
-        webSocketHandler.broadcast(message);
+        String json = String.format(
+                "{\"type\":\"GAME_CREATED\",\"gameId\":%d,\"title\":\"%s\"}",
+                event.gameId(),
+                event.title()
+        );
+
+        log.info("WS notify (created): {}", json);
+        webSocketHandler.broadcast(json);
     }
 
     @RabbitListener(
@@ -54,12 +60,15 @@ public class NotificationListener {
             )
     )
     public void onGameDeleted(GameDeletedEvent event) {
-        if (event.isFavourite()) {
-            String message = "Game deleted: id=" + event.gameId();
+        log.info("Received event from RabbitMQ: {}", event);
 
-            log.info("WS notify (deleted): {}", message);
-            webSocketHandler.broadcast(message);
-        }
+        String json = String.format(
+                "{\"type\":\"GAME_DELETED\",\"gameId\":%d}",
+                event.gameId()
+        );
+
+        log.info("WS notify (deleted): {}", json);
+        webSocketHandler.broadcast(json);
     }
 
     @RabbitListener(
@@ -68,16 +77,20 @@ public class NotificationListener {
                             name = "ws.notifications.game-discount",
                             durable = "true"
                     ),
-                    exchange = @Exchange(name = ANALYTICS_FANOUT, type = "fanout", durable = "true")
+                    exchange = @Exchange(name = ANALYTICS_FANOUT, type = "fanout")
             )
     )
     public void onGameDiscount(GameDiscountAddedEvent event) {
-        if (event.isFavourite()) {
-            String message = "Discount applied: gameId=" + event.gameId()
-                    + ", discount=" + event.gamePercentDiscount() + "%, final price=" + event.gameFinalPrice();
+        log.info("Received event from RabbitMQ: {}", event);
 
-            log.info("WS notify (discount): {}", message);
-            webSocketHandler.broadcast(message);
-        }
+        String json = String.format(
+                "{\"type\":\"DISCOUNT_ADDED\",\"gameId\":%d,\"discount\":%d,\"finalPrice\":%d}",
+                event.gameId(),
+                event.gamePercentDiscount(),
+                event.gameFinalPrice()
+        );
+
+        log.info("WS notify (discount): {}", json);
+        webSocketHandler.broadcast(json);
     }
 }

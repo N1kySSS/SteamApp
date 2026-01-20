@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/steamapi/pom.xml" />
         <option value="$PROJECT_DIR$/SteamEvents/pom.xml" />
         <option value="$PROJECT_DIR$/steammicro/pom.xml" />
+        <option value="$PROJECT_DIR$/ws-service/pom.xml" />
       </list>
     </option>
   </component>

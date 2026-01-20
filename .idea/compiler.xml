@@ -13,6 +13,7 @@
         <module name="steamapi" />
         <module name="steam-audit" />
         <module name="SteamEvents" />
+        <module name="ws-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +29,7 @@
       <module name="steam-audit" options="-parameters" />
       <module name="steamapi" options="-parameters" />
       <module name="steammicro" options="-parameters" />
+      <module name="ws-service" options="-parameters" />
     </option>
   </component>
 </project>

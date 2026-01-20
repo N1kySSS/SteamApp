@@ -13,5 +13,6 @@
     <file url="file://$PROJECT_DIR$/steam-audit/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/steamapi/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/steammicro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ws-service/src/main/java" charset="UTF-8" />
   </component>
 </project>
