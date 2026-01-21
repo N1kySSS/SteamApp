@@ -32,7 +32,7 @@ public class PerformanceWarningFilter implements Filter {
             filterChain.doFilter(request, response);
         } finally {
             long duration = System.currentTimeMillis() - startTime;
-            if (duration > 500L && request.getRequestURI().contains("/api")) {
+            if (duration > 500L && request.getRequestURI().startsWith("/api")) {
                 log.warn("Slow request detected: {} {} took {}ms",
                         request.getMethod(), request.getRequestURI(), duration);
             }
