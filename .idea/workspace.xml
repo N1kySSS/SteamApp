@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5334c49d-a6d2-454e-8373-bd018ee84578" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/filters/LoggingAndTracingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/filters/PerformanceWarningFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/steammicro/src/main/java/com/example/steammicro/filters/PerformanceWarningFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
